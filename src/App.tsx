@@ -1,11 +1,11 @@
 import { Layout } from '@/components/layout';
-import { Main } from '@/components/main';
-import { NotFound } from '@/components/not-found';
+import { Main } from '@/pages/main';
+import { NotFound } from '@/pages/not-found';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { CONFIG } from '@/lib/config';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Secret } from './components/secret';
+import { Secret } from './pages/secret';
 
 const router = createBrowserRouter([
     {
