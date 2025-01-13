@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useEffect, useReducer } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -50,7 +51,7 @@ function reducer(state: State, action: Action): State {
         case 'FETCH_NEED_PASSWORD':
             return { ...state, errorText: action.payload, needPassword: true, isLoading: false };
         case 'FETCH_ERROR':
-            return { ...state, errorText: action.payload, isLoading: false };
+            return { ...state, errorText: action.payload, needPassword: false, isLoading: false };
         case 'SET_LOADING':
             return { ...state, isLoading: action.payload };
         default:
@@ -70,31 +71,34 @@ export function Secret() {
 
     const { handleSubmit, control } = form;
 
-    const fetchSecret = async (password?: string) => {
-        dispatch({ type: 'SET_LOADING', payload: true });
-        try {
-            const params = password ? `?password=${encodeURIComponent(password)}` : '';
-            const response = await fetch(`${CONFIG.apiSecretsUrl}/${code}${params}`, {
-                method: 'GET',
-                headers: { Accept: 'text/html' },
-            });
+    const fetchSecret = useCallback(
+        async (password?: string) => {
+            dispatch({ type: 'SET_LOADING', payload: true });
+            try {
+                const params = password ? `?password=${encodeURIComponent(password)}` : '';
+                const response = await fetch(`${CONFIG.apiSecretsUrl}/${code}${params}`, {
+                    method: 'GET',
+                    headers: { Accept: 'text/html' },
+                });
 
-            const text = await response.text();
+                const text = await response.text();
 
-            if (response.status === 200) {
-                dispatch({ type: 'FETCH_SUCCESS', payload: text });
-            } else if (response.status === 401) {
-                dispatch({ type: 'FETCH_NEED_PASSWORD', payload: text });
-            } else {
-                dispatch({ type: 'FETCH_ERROR', payload: text || 'Failed to fetch the secret.' });
+                if (response.status === 200) {
+                    dispatch({ type: 'FETCH_SUCCESS', payload: text });
+                } else if (response.status === 401) {
+                    dispatch({ type: 'FETCH_NEED_PASSWORD', payload: text });
+                } else {
+                    dispatch({ type: 'FETCH_ERROR', payload: text || 'Failed to fetch the secret.' });
+                }
+            } catch (error) {
+                dispatch({
+                    type: 'FETCH_ERROR',
+                    payload: error instanceof Error ? error.message : 'Unexpected error occurred.',
+                });
             }
-        } catch (error) {
-            dispatch({
-                type: 'FETCH_ERROR',
-                payload: error instanceof Error ? error.message : 'Unexpected error occurred.',
-            });
-        }
-    };
+        },
+        [code],
+    );
 
     useEffect(() => {
         if (!code) {
