@@ -31,8 +31,8 @@ type FormValues = z.infer<typeof FormSchema>;
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
-const HOURS = Array.from({ length: 24 }, (_, i) => i);
-const MINUTES = Array.from({ length: 12 }, (_, i) => i * 5);
+const HOURS = [...Array(24).keys()];
+const MINUTES = [...Array(12)].map((_, i) => i * 5);
 
 export function Main() {
     const form = useForm<FormValues>({
@@ -99,7 +99,7 @@ export function Main() {
                 });
             }
         },
-        [reset, toast],
+        [reset],
     );
 
     const copyToClipboard = useCallback(() => {
@@ -111,7 +111,7 @@ export function Main() {
                 description: secretUrl,
             });
         }
-    }, [getValues, toast]);
+    }, [getValues]);
 
     const updateDateTime = useCallback(
         (type: 'hour' | 'minute', value: number) => {
