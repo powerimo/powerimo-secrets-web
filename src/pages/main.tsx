@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -18,20 +19,23 @@ import { Textarea } from '@/components/ui/textarea';
 import { PasswordInput } from '@/components/ui/password-input';
 
 const FormSchema = z.object({
-    secretText: z.string().min(1, { message: 'Secret can not be empty' }),
+    secretText: z.string().min(1, { message: 'Secret cannot be empty' }),
     dateTime: z.date().refine((date) => date > new Date(), { message: 'The date must be in the future.' }),
     hitLimit: z.coerce.number({ message: 'Please enter a valid positive integer' }).int().positive(),
-    password: z.string(),
-    secretUrl: z.string(),
+    password: z.string().optional(),
+    secretUrl: z.string().optional(),
 });
 
-type Form = z.infer<typeof FormSchema>;
+type FormValues = z.infer<typeof FormSchema>;
 
 const today = new Date();
 today.setHours(0, 0, 0, 0);
 
+const HOURS = Array.from({ length: 24 }, (_, i) => i);
+const MINUTES = Array.from({ length: 12 }, (_, i) => i * 5);
+
 export function Main() {
-    const form = useForm<Form>({
+    const form = useForm<FormValues>({
         mode: 'onChange',
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -44,83 +48,86 @@ export function Main() {
     });
 
     const { reset, getValues, setValue, handleSubmit, control } = form;
-
     const { toast } = useToast();
 
-    const createSecret: SubmitHandler<Form> = async (data) => {
-        const ttl = Math.round((data.dateTime.getTime() - Date.now()) / 1000);
+    const createSecret: SubmitHandler<FormValues> = useCallback(
+        async (data) => {
+            try {
+                const ttl = Math.round((data.dateTime.getTime() - Date.now()) / 1000);
 
-        const response = await fetch(CONFIG.apiSecretsUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                secret: data.secretText,
-                hitLimit: data.hitLimit,
-                ttl,
-                password: data.password,
-            }),
-        });
-        if (response.ok) {
-            const { url } = await response.json();
-            reset({ secretUrl: url });
-
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(url);
-                toast({
-                    title: 'Link to your secret created and copied to clipboard',
-                    description: url,
+                const response = await fetch(CONFIG.apiSecretsUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        secret: data.secretText,
+                        hitLimit: data.hitLimit,
+                        ttl,
+                        password: data.password && data.password !== "" ? data.password : null,
+                    }),
                 });
-            } else {
+
+                if (response.ok) {
+                    const { url } = await response.json();
+                    reset({ secretUrl: url });
+
+                    if (navigator.clipboard) {
+                        await navigator.clipboard.writeText(url);
+                        toast({
+                            title: 'Link to your secret created and copied to clipboard',
+                            description: url,
+                        });
+                    } else {
+                        toast({
+                            title: 'Link to your secret created',
+                            description: url,
+                        });
+                    }
+                } else {
+                    const errorData = await response.json();
+                    toast({
+                        title: `Error ${response.status}`,
+                        description: errorData.message || response.statusText,
+                        variant: 'destructive',
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to create secret:', error);
                 toast({
-                    title: 'Link to your secret created',
-                    description: url,
+                    title: 'Unexpected error',
+                    description: 'Please try again later.',
+                    variant: 'destructive',
                 });
             }
-        } else {
-            const errorData = await response.json();
-            toast({
-                title: `Error ${response.status}`,
-                description: errorData.message || response.statusText,
-                variant: 'destructive',
-            });
-        }
-    };
+        },
+        [reset, toast],
+    );
 
-    const handleToClipboard = () => {
-        if (!navigator.clipboard) return;
-
+    const copyToClipboard = useCallback(() => {
         const secretUrl = getValues('secretUrl');
-
-        if (secretUrl) {
+        if (secretUrl && navigator.clipboard) {
             navigator.clipboard.writeText(secretUrl);
             toast({
-                title: 'Link to your secret copied to clipboard',
+                title: 'Link copied to clipboard',
                 description: secretUrl,
             });
         }
-    };
+    }, [getValues, toast]);
 
-    const handleDateSelect = (date: Date | undefined) => {
-        if (date) {
-            setValue('dateTime', date, { shouldValidate: true });
-        }
-    };
+    const updateDateTime = useCallback(
+        (type: 'hour' | 'minute', value: number) => {
+            const currentDate = getValues('dateTime') || new Date();
+            const updatedDate = new Date(currentDate);
 
-    const handleTimeChange = (type: 'hour' | 'minute', value: string) => {
-        const currentDate = form.getValues('dateTime') || new Date();
-        let newDate = new Date(currentDate);
+            if (type === 'hour') {
+                updatedDate.setHours(value);
+            } else {
+                updatedDate.setMinutes(value);
+            }
 
-        if (type === 'hour') {
-            const hour = parseInt(value, 10);
-            newDate.setHours(hour);
-        } else if (type === 'minute') {
-            newDate.setMinutes(parseInt(value, 10));
-        }
-
-        setValue('dateTime', newDate, { shouldValidate: true });
-    };
+            setValue('dateTime', updatedDate, { shouldValidate: true });
+        },
+        [getValues, setValue],
+    );
 
     return (
         <div className='flex-1 container content-center px-4 md:px-6'>
@@ -137,24 +144,22 @@ export function Main() {
                             <FormField
                                 control={control}
                                 name='secretText'
-                                render={({ field }) => {
-                                    return (
-                                        <FormItem>
-                                            <FormLabel>Enter the secret</FormLabel>
-                                            <FormControl>
-                                                <Textarea
-                                                    placeholder='your secret'
-                                                    {...field}
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    );
-                                }}
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Enter the secret</FormLabel>
+                                        <FormControl>
+                                            <Textarea
+                                                placeholder='Your secret'
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
                             />
                             <div className='flex flex-row space-x-6'>
                                 <FormField
-                                    control={form.control}
+                                    control={control}
                                     name='dateTime'
                                     render={({ field }) => (
                                         <FormItem className='flex-1'>
@@ -163,18 +168,16 @@ export function Main() {
                                                 <PopoverTrigger asChild>
                                                     <FormControl>
                                                         <Button
-                                                            variant={'outline'}
+                                                            variant='outline'
                                                             type='button'
                                                             className={cn(
                                                                 'justify-start font-normal px-3 w-full',
                                                                 !field.value && 'text-muted-foreground',
                                                             )}
                                                         >
-                                                            {field.value ? (
-                                                                format(field.value, 'dd.MM.yyyy HH:mm')
-                                                            ) : (
-                                                                <span>click to select</span>
-                                                            )}
+                                                            {field.value
+                                                                ? format(field.value, 'dd.MM.yyyy HH:mm')
+                                                                : 'Click to select'}
                                                         </Button>
                                                     </FormControl>
                                                 </PopoverTrigger>
@@ -183,36 +186,31 @@ export function Main() {
                                                         <Calendar
                                                             mode='single'
                                                             selected={field.value}
-                                                            onSelect={handleDateSelect}
+                                                            onSelect={(date) =>
+                                                                date &&
+                                                                setValue('dateTime', date, { shouldValidate: true })
+                                                            }
                                                             disabled={(date) => date < today}
                                                             initialFocus
                                                         />
                                                         <div className='flex flex-col sm:flex-row sm:h-[300px] divide-y sm:divide-y-0 sm:divide-x'>
                                                             <ScrollArea className='w-64 sm:w-auto'>
                                                                 <div className='flex sm:flex-col p-2'>
-                                                                    {Array.from({ length: 24 }, (_, i) => i).map(
-                                                                        (hour) => (
-                                                                            <Button
-                                                                                key={hour}
-                                                                                size='icon'
-                                                                                variant={
-                                                                                    field.value &&
-                                                                                    field.value.getHours() === hour
-                                                                                        ? 'default'
-                                                                                        : 'ghost'
-                                                                                }
-                                                                                className='sm:w-full shrink-0 aspect-square'
-                                                                                onClick={() =>
-                                                                                    handleTimeChange(
-                                                                                        'hour',
-                                                                                        hour.toString(),
-                                                                                    )
-                                                                                }
-                                                                            >
-                                                                                {hour}
-                                                                            </Button>
-                                                                        ),
-                                                                    )}
+                                                                    {HOURS.map((hour) => (
+                                                                        <Button
+                                                                            key={hour}
+                                                                            size='icon'
+                                                                            variant={
+                                                                                field.value?.getHours() === hour
+                                                                                    ? 'default'
+                                                                                    : 'ghost'
+                                                                            }
+                                                                            className='sm:w-full shrink-0 aspect-square'
+                                                                            onClick={() => updateDateTime('hour', hour)}
+                                                                        >
+                                                                            {hour}
+                                                                        </Button>
+                                                                    ))}
                                                                 </div>
                                                                 <ScrollBar
                                                                     orientation='horizontal'
@@ -221,29 +219,23 @@ export function Main() {
                                                             </ScrollArea>
                                                             <ScrollArea className='w-64 sm:w-auto'>
                                                                 <div className='flex sm:flex-col p-2'>
-                                                                    {Array.from({ length: 12 }, (_, i) => i * 5).map(
-                                                                        (minute) => (
-                                                                            <Button
-                                                                                key={minute}
-                                                                                size='icon'
-                                                                                variant={
-                                                                                    field.value &&
-                                                                                    field.value.getMinutes() === minute
-                                                                                        ? 'default'
-                                                                                        : 'ghost'
-                                                                                }
-                                                                                className='sm:w-full shrink-0 aspect-square'
-                                                                                onClick={() =>
-                                                                                    handleTimeChange(
-                                                                                        'minute',
-                                                                                        minute.toString(),
-                                                                                    )
-                                                                                }
-                                                                            >
-                                                                                {minute.toString().padStart(2, '0')}
-                                                                            </Button>
-                                                                        ),
-                                                                    )}
+                                                                    {MINUTES.map((minute) => (
+                                                                        <Button
+                                                                            key={minute}
+                                                                            size='icon'
+                                                                            variant={
+                                                                                field.value?.getMinutes() === minute
+                                                                                    ? 'default'
+                                                                                    : 'ghost'
+                                                                            }
+                                                                            className='sm:w-full shrink-0 aspect-square'
+                                                                            onClick={() =>
+                                                                                updateDateTime('minute', minute)
+                                                                            }
+                                                                        >
+                                                                            {minute.toString().padStart(2, '0')}
+                                                                        </Button>
+                                                                    ))}
                                                                 </div>
                                                                 <ScrollBar
                                                                     orientation='horizontal'
@@ -261,41 +253,37 @@ export function Main() {
                                 <FormField
                                     control={control}
                                     name='hitLimit'
-                                    render={({ field }) => {
-                                        return (
-                                            <FormItem className='flex-1'>
-                                                <FormLabel>Hit limit</FormLabel>
-                                                <FormControl>
-                                                    <Input
-                                                        className='tabular-nums'
-                                                        placeholder='input limit'
-                                                        {...field}
-                                                        value={field.value ?? ''}
-                                                    />
-                                                </FormControl>
-                                                <FormMessage />
-                                            </FormItem>
-                                        );
-                                    }}
+                                    render={({ field }) => (
+                                        <FormItem className='flex-1'>
+                                            <FormLabel>Hit limit</FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    className='tabular-nums'
+                                                    placeholder='Input limit'
+                                                    {...field}
+                                                    value={field.value ?? ''}
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
                                 />
                             </div>
                             <FormField
                                 control={control}
                                 name='password'
-                                render={({ field }) => {
-                                    return (
-                                        <FormItem className='flex-1'>
-                                            <FormLabel>Password (optional)</FormLabel>
-                                            <FormControl>
-                                                <PasswordInput
-                                                    placeholder='password'
-                                                    {...field}
-                                                />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    );
-                                }}
+                                render={({ field }) => (
+                                    <FormItem className='flex-1'>
+                                        <FormLabel>Password (optional)</FormLabel>
+                                        <FormControl>
+                                            <PasswordInput
+                                                placeholder='Password'
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
                             />
                             <Button
                                 type='submit'
@@ -307,7 +295,7 @@ export function Main() {
                                 control={control}
                                 name='secretUrl'
                                 render={({ field }) => {
-                                    return !!field.value ? (
+                                    return field.value ? (
                                         <>
                                             <Separator className='my-8' />
                                             <div className='flex w-full flex-col'>
@@ -317,16 +305,18 @@ export function Main() {
                                                 <div className='flex items-end space-x-2'>
                                                     <ScrollArea className='text-lg leading-9 font-semibold whitespace-nowrap'>
                                                         {field.value}
-                                                        <ScrollBar orientation='horizontal' className='mt-2' />
+                                                        <ScrollBar
+                                                            orientation='horizontal'
+                                                            className='mt-2'
+                                                        />
                                                     </ScrollArea>
-
                                                     {navigator.clipboard && (
                                                         <Button
                                                             variant='ghost'
                                                             size='icon'
                                                             type='button'
                                                             className='flex-none'
-                                                            onClick={handleToClipboard}
+                                                            onClick={copyToClipboard}
                                                         >
                                                             <Clipboard />
                                                         </Button>
