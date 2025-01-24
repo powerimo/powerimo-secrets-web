@@ -142,7 +142,9 @@ export function Secret() {
                         <Spinner />
                     ) : state.secretText ? (
                         <div className='flex items-end space-x-2'>
-                            <span className='text-lg leading-9 font-semibold w-full'>{state.secretText}</span>
+                            <span className='text-lg leading-9 font-semibold w-full whitespace-pre-wrap break-words'>
+                                {state.secretText}
+                            </span>
                             <Button
                                 variant='ghost'
                                 size='icon'
