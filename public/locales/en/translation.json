@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "New secret",
+        "Enter the secret": "Enter the secret",
+        "Your secret": "Your secret",
+        "Secret cannot be empty": "Secret cannot be empty",
+        "Expiration time": "Expiration time",
+        "Expiration time must be in the future": "Expiration time must be in the future",
+        "Click to select": "Click to select",
+        "Hit limit": "Hit limit",
+        "Please enter a valid positive integer": "Please enter a valid positive integer",
+        "Password (optional)": "Password (optional)",
+        "Password": "Password",
+        "Create": "Create",
+        "Link to your secret": "Link to your secret",
+        "Link to your secret created and copied to clipboard": "Link to your secret created and copied to clipboard",
+        "Link to your secret created": "Link to your secret created",
+        "Link copied to clipboard": "Link copied to clipboard",
+        "Error": "Error",
+        "Unexpected error": "Unexpected error",
+        "Please try again later": "Please try again later"
+    },
+    "Secret page": {
+        "The Secret": "The Secret",
+        "Password": "Password",
+        "password": "password",
+        "Password is required": "Password is required",
+        "Password is required for opening the link": "Password is required for opening the link",
+        "Password is incorrect": "Password is incorrect",
+        "Submit": "Submit",
+        "Limit hits is exceeded": "Limit hits is exceeded",
+        "Close": "Close",
+        "Copied to clipboard": "Copied to clipboard",
+        "Error": "Error",
+        "Failed to copy secret to clipboard": "Failed to copy secret to clipboard",
+        "Failed to fetch the secret": "Failed to fetch the secret",
+        "Unexpected error occurred": "Unexpected error occurred"
+    }
+}

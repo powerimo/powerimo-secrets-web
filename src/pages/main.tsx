@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -17,30 +17,39 @@ import { format } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar';
 import { Textarea } from '@/components/ui/textarea';
 import { PasswordInput } from '@/components/ui/password-input';
+import { useTranslation } from 'react-i18next';
 
-const FormSchema = z.object({
-    secretText: z.string().min(1, { message: 'Secret cannot be empty' }),
-    dateTime: z.date().refine((date) => date > new Date(), { message: 'The date must be in the future.' }),
-    hitLimit: z.coerce.number({ message: 'Please enter a valid positive integer' }).int().positive(),
-    password: z.string().optional(),
-    secretUrl: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof FormSchema>;
-
-const today = new Date();
-today.setHours(0, 0, 0, 0);
+const TODAY = new Date();
+TODAY.setHours(0, 0, 0, 0);
 
 const HOURS = [...Array(24).keys()];
 const MINUTES = [...Array(12)].map((_, i) => i * 5);
 
 export function Main() {
+    const { t } = useTranslation('translation', { keyPrefix: 'Main page' });
+
+    const FormSchema = useMemo(
+        () =>
+            z.object({
+                secretText: z.string().min(1, { message: t('Secret cannot be empty') }),
+                dateTime: z
+                    .date()
+                    .refine((date) => date > new Date(), { message: t('Expiration time must be in the future') }),
+                hitLimit: z.coerce.number({ message: 'Please enter a valid positive integer' }).int().positive(),
+                password: z.string().optional(),
+                secretUrl: z.string().optional(),
+            }),
+        [t],
+    );
+
+    type FormValues = z.infer<typeof FormSchema>;
+
     const form = useForm<FormValues>({
         mode: 'onChange',
         resolver: zodResolver(FormSchema),
         defaultValues: {
             secretText: '',
-            dateTime: new Date(today.getFullYear() + 1, today.getMonth(), today.getDate()),
+            dateTime: new Date(TODAY.getFullYear() + 1, TODAY.getMonth(), TODAY.getDate()),
             hitLimit: 1,
             password: '',
             secretUrl: '',
@@ -51,7 +60,7 @@ export function Main() {
     const { toast } = useToast();
 
     const createSecret: SubmitHandler<FormValues> = useCallback(
-        async (data) => {
+        async (data: FormValues) => {
             try {
                 const ttl = Math.round((data.dateTime.getTime() - Date.now()) / 1000);
 
@@ -62,7 +71,7 @@ export function Main() {
                         secret: data.secretText,
                         hitLimit: data.hitLimit,
                         ttl,
-                        password: data.password && data.password !== "" ? data.password : null,
+                        password: data.password && data.password !== '' ? data.password : null,
                     }),
                 });
 
@@ -73,19 +82,19 @@ export function Main() {
                     if (navigator.clipboard) {
                         await navigator.clipboard.writeText(url);
                         toast({
-                            title: 'Link to your secret created and copied to clipboard',
+                            title: t('Link to your secret created and copied to clipboard'),
                             description: url,
                         });
                     } else {
                         toast({
-                            title: 'Link to your secret created',
+                            title: t('Link to your secret created'),
                             description: url,
                         });
                     }
                 } else {
                     const errorData = await response.json();
                     toast({
-                        title: `Error ${response.status}`,
+                        title: `${t('Error')} ${response.status}`,
                         description: errorData.message || response.statusText,
                         variant: 'destructive',
                     });
@@ -93,8 +102,8 @@ export function Main() {
             } catch (error) {
                 console.error('Failed to create secret:', error);
                 toast({
-                    title: 'Unexpected error',
-                    description: 'Please try again later.',
+                    title: t('Unexpected error'),
+                    description: t('Please try again later'),
                     variant: 'destructive',
                 });
             }
@@ -107,7 +116,7 @@ export function Main() {
         if (secretUrl && navigator.clipboard) {
             navigator.clipboard.writeText(secretUrl);
             toast({
-                title: 'Link copied to clipboard',
+                title: t('Link copied to clipboard'),
                 description: secretUrl,
             });
         }
@@ -133,7 +142,7 @@ export function Main() {
         <div className='flex-1 container content-center px-4 md:px-6'>
             <Card className='w-full max-w-lg m-auto border-0'>
                 <CardHeader>
-                    <CardTitle>Create secret</CardTitle>
+                    <CardTitle>{t('New secret')}</CardTitle>
                 </CardHeader>
                 <CardContent className='flex w-full flex-col'>
                     <Form {...form}>
@@ -146,10 +155,10 @@ export function Main() {
                                 name='secretText'
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Enter the secret</FormLabel>
+                                        <FormLabel>{t('Enter the secret')}</FormLabel>
                                         <FormControl>
                                             <Textarea
-                                                placeholder='Your secret'
+                                                placeholder={t('Your secret')}
                                                 {...field}
                                             />
                                         </FormControl>
@@ -163,7 +172,7 @@ export function Main() {
                                     name='dateTime'
                                     render={({ field }) => (
                                         <FormItem className='flex-1'>
-                                            <FormLabel>Expiration time</FormLabel>
+                                            <FormLabel>{t('Expiration time')}</FormLabel>
                                             <Popover>
                                                 <PopoverTrigger asChild>
                                                     <FormControl>
@@ -177,7 +186,7 @@ export function Main() {
                                                         >
                                                             {field.value
                                                                 ? format(field.value, 'dd.MM.yyyy HH:mm')
-                                                                : 'Click to select'}
+                                                                : t('Click to select')}
                                                         </Button>
                                                     </FormControl>
                                                 </PopoverTrigger>
@@ -190,7 +199,7 @@ export function Main() {
                                                                 date &&
                                                                 setValue('dateTime', date, { shouldValidate: true })
                                                             }
-                                                            disabled={(date) => date < today}
+                                                            disabled={(date) => date < TODAY}
                                                             initialFocus
                                                         />
                                                         <div className='flex flex-col sm:flex-row sm:h-[300px] divide-y sm:divide-y-0 sm:divide-x'>
@@ -255,7 +264,7 @@ export function Main() {
                                     name='hitLimit'
                                     render={({ field }) => (
                                         <FormItem className='flex-1'>
-                                            <FormLabel>Hit limit</FormLabel>
+                                            <FormLabel>{t('Hit limit')}</FormLabel>
                                             <FormControl>
                                                 <Input
                                                     className='tabular-nums'
@@ -274,11 +283,12 @@ export function Main() {
                                 name='password'
                                 render={({ field }) => (
                                     <FormItem className='flex-1'>
-                                        <FormLabel>Password (optional)</FormLabel>
+                                        <FormLabel>{t('Password (optional)')}</FormLabel>
                                         <FormControl>
                                             <PasswordInput
-                                                placeholder='Password'
+                                                placeholder={t('Password')}
                                                 {...field}
+                                                autoComplete='off'
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -289,7 +299,7 @@ export function Main() {
                                 type='submit'
                                 className='w-full'
                             >
-                                Create secret
+                                {t('Create')}
                             </Button>
                             <FormField
                                 control={control}
@@ -300,7 +310,7 @@ export function Main() {
                                             <Separator className='my-8' />
                                             <div className='flex w-full flex-col'>
                                                 <span className='text-sm font-medium leading-none'>
-                                                    Link to your secret
+                                                    {t('Link to your secret')}
                                                 </span>
                                                 <div className='flex items-end space-x-2'>
                                                     <ScrollArea className='text-lg leading-9 font-semibold whitespace-nowrap'>

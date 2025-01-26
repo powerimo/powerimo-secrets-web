@@ -6,27 +6,37 @@ import { CONFIG } from '@/lib/config';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Secret } from './pages/secret';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: (
+                <Layout>
+                    <Main />
+                </Layout>
+            ),
+        },
+        {
+            path: '/:code',
+            element: (
+                <Layout>
+                    <Secret />
+                </Layout>
+            ),
+        },
+    ],
     {
-        path: '/',
-        element: <Layout><Main/></Layout>,
+        basename: CONFIG.baseDir,
     },
-    {
-        path: '/:code',
-        element: <Layout><Secret/></Layout>,
-    }
-], {
-    basename: CONFIG.baseDir,
-});
-
+);
 
 function App() {
     return (
         <ThemeProvider defaultTheme='dark'>
-            <RouterProvider router={router}/>
-            <Toaster/>
+            <RouterProvider router={router} />
+            <Toaster />
         </ThemeProvider>
-    )
+    );
 }
 
-export default App
+export default App;

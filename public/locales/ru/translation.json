@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Новый секрет",
+        "Enter the secret": "Введите секрет",
+        "Your secret": "Ваш секрет",
+        "Secret cannot be empty": "Секрет не может быть пустым",
+        "Expiration time": "Время жизни ссылки",
+        "Expiration time must be in the future": "Время жизни ссылки должно быть в будущем",
+        "Click to select": "Нажмите, чтобы выбрать",
+        "Hit limit": "Лимит просмотров",
+        "Please enter a valid positive integer": "Введите корректное положительное целое число",
+        "Password (optional)": "Пароль (необязательно)",
+        "Password": "Пароль",
+        "Create": "Создать",
+        "Link to your secret": "Ссылка на ваш секрет",
+        "Link to your secret created and copied to clipboard": "Ссылка на ваш секрет создана и скопирована в буфер обмена",
+        "Link to your secret created": "Ссылка на ваш секрет создана",
+        "Link copied to clipboard": "Ссылка скопирована в буфер обмена",
+        "Error": "Ошибка",
+        "Unexpected error": "Непредвиденная ошибка",
+        "Please try again later": "Пожалуйста, попробуйте позже"
+    },
+    "Secret page": {
+        "The Secret": "Секрет",
+        "Password": "Пароль",
+        "password": "пароль",
+        "Password is required": "Требуется пароль",
+        "Password is required for opening the link": "Для открытия ссылки требуется пароль",
+        "Password is incorrect": "Пароль неверный",
+        "Submit": "Отправить",
+        "Limit hits is exceeded": "Превышен лимит просмотров",
+        "Close": "Закрыть",
+        "Copied to clipboard": "Скопирован в буфер обмена",
+        "Error": "Ошибка",
+        "Failed to copy secret to clipboard": "Не удалось скопировать в буфер обмена",
+        "Failed to fetch the secret": "Не удалось получить данные",
+        "Unexpected error occurred": "Произошла непредвиденная ошибка"
+    }
+}

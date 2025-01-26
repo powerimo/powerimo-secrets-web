@@ -21,7 +21,7 @@ const PasswordInput = React.forwardRef<HTMLInputElement, InputProps>(({ classNam
                 type={showPassword ? 'text' : 'password'}
                 className={cn('hide-password-toggle pr-10', className)}
                 ref={ref}
-				onChange={onChange}
+                onChange={onChange}
                 {...props}
             />
             <Button
