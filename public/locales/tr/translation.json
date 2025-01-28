@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Yeni gizli bilgi",
+        "Enter the secret": "Gizli bilgiyi girin",
+        "Your secret": "Sizin gizli bilginiz",
+        "Secret cannot be empty": "Gizli bilgi boş olamaz",
+        "Expiration time": "Son kullanma zamanı",
+        "Expiration time must be in the future": "Son kullanma zamanı gelecekte olmalı",
+        "Click to select": "Seçmek için tıklayın",
+        "Hit limit": "Sınır sayısı",
+        "Please enter a valid positive integer": "Geçerli bir pozitif tam sayı girin",
+        "Password (optional)": "Şifre (isteğe bağlı)",
+        "Password": "Şifre",
+        "Create": "Oluştur",
+        "Link to your secret": "Gizli bilginize bağlantı",
+        "Link to your secret created and copied to clipboard": "Gizli bilginize bağlantı oluşturuldu ve panoya kopyalandı",
+        "Link to your secret created": "Gizli bilginize bağlantı oluşturuldu",
+        "Link copied to clipboard": "Bağlantı panoya kopyalandı",
+        "Error": "Hata",
+        "Unexpected error": "Beklenmeyen bir hata",
+        "Please try again later": "Lütfen daha sonra tekrar deneyin"
+    },
+    "Secret page": {
+        "The Secret": "Gizli Bilgi",
+        "Password": "Şifre",
+        "password": "şifre",
+        "Password is required": "Şifre gerekli",
+        "Password is required for opening the link": "Bağlantıyı açmak için şifre gerekli",
+        "Password is incorrect": "Şifre yanlış",
+        "Submit": "Gönder",
+        "Limit hits is exceeded": "Sınır sayısı aşıldı",
+        "Close": "Kapat",
+        "Copied to clipboard": "Panoya kopyalandı",
+        "Error": "Hata",
+        "Failed to copy secret to clipboard": "Gizli bilgi panoya kopyalanamadı",
+        "Failed to fetch the secret": "Gizli bilgi alınamadı",
+        "Unexpected error occurred": "Beklenmeyen bir hata oluştu"
+    }
+}

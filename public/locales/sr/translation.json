@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Нова тајна",
+        "Enter the secret": "Унесите тајну",
+        "Your secret": "Ваша тајна",
+        "Secret cannot be empty": "Тајна не може бити празна",
+        "Expiration time": "Време истека",
+        "Expiration time must be in the future": "Време истека мора бити у будућности",
+        "Click to select": "Кликните за избор",
+        "Hit limit": "Ограничење приступа",
+        "Please enter a valid positive integer": "Унесите важећи позитиван цео број",
+        "Password (optional)": "Лозинка (опционо)",
+        "Password": "Лозинка",
+        "Create": "Креирај",
+        "Link to your secret": "Линк до ваше тајне",
+        "Link to your secret created and copied to clipboard": "Линк до ваше тајне је креиран и копиран у клипборд",
+        "Link to your secret created": "Линк до ваше тајне је креиран",
+        "Link copied to clipboard": "Линк је копиран у клипборд",
+        "Error": "Грешка",
+        "Unexpected error": "Неочекивана грешка",
+        "Please try again later": "Молимо покушајте поново касније"
+    },
+    "Secret page": {
+        "The Secret": "Тајна",
+        "Password": "Лозинка",
+        "password": "лозинка",
+        "Password is required": "Лозинка је обавезна",
+        "Password is required for opening the link": "Лозинка је обавезна за отварање линка",
+        "Password is incorrect": "Лозинка је нетачна",
+        "Submit": "Потврди",
+        "Limit hits is exceeded": "Премашен је лимит приступа",
+        "Close": "Затвори",
+        "Copied to clipboard": "Копирано у клипборд",
+        "Error": "Грешка",
+        "Failed to copy secret to clipboard": "Неуспешно копирање тајне у клипборд",
+        "Failed to fetch the secret": "Неуспешно преузимање тајне",
+        "Unexpected error occurred": "Догодила се неочекивана грешка"
+    }
+}

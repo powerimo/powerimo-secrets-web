@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Nouveau secret",
+        "Enter the secret": "Entrez le secret",
+        "Your secret": "Votre secret",
+        "Secret cannot be empty": "Le secret ne peut pas être vide",
+        "Expiration time": "Date d'expiration",
+        "Expiration time must be in the future": "La date d'expiration doit être dans le futur",
+        "Click to select": "Cliquez pour sélectionner",
+        "Hit limit": "Limite de consultations",
+        "Please enter a valid positive integer": "Veuillez entrer un entier positif valide",
+        "Password (optional)": "Mot de passe (facultatif)",
+        "Password": "Mot de passe",
+        "Create": "Créer",
+        "Link to your secret": "Lien vers votre secret",
+        "Link to your secret created and copied to clipboard": "Lien vers votre secret créé et copié dans le presse-papiers",
+        "Link to your secret created": "Lien vers votre secret créé",
+        "Link copied to clipboard": "Lien copié dans le presse-papiers",
+        "Error": "Erreur",
+        "Unexpected error": "Erreur inattendue",
+        "Please try again later": "Veuillez réessayer plus tard"
+    },
+    "Secret page": {
+        "The Secret": "Le Secret",
+        "Password": "Mot de passe",
+        "password": "mot de passe",
+        "Password is required": "Le mot de passe est requis",
+        "Password is required for opening the link": "Le mot de passe est requis pour ouvrir le lien",
+        "Password is incorrect": "Le mot de passe est incorrect",
+        "Submit": "Soumettre",
+        "Limit hits is exceeded": "La limite de consultations est dépassée",
+        "Close": "Fermer",
+        "Copied to clipboard": "Copié dans le presse-papiers",
+        "Error": "Erreur",
+        "Failed to copy secret to clipboard": "Échec de la copie du secret dans le presse-papiers",
+        "Failed to fetch the secret": "Échec de la récupération du secret",
+        "Unexpected error occurred": "Une erreur inattendue s'est produite"
+    }
+}

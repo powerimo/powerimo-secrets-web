@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Nowy sekret",
+        "Enter the secret": "Wpisz sekret",
+        "Your secret": "Twój sekret",
+        "Secret cannot be empty": "Sekret nie może być pusty",
+        "Expiration time": "Czas wygaśnięcia",
+        "Expiration time must be in the future": "Czas wygaśnięcia musi być w przyszłości",
+        "Click to select": "Kliknij, aby wybrać",
+        "Hit limit": "Limit wyświetleń",
+        "Please enter a valid positive integer": "Podaj poprawną dodatnią liczbę całkowitą",
+        "Password (optional)": "Hasło (opcjonalne)",
+        "Password": "Hasło",
+        "Create": "Utwórz",
+        "Link to your secret": "Link do twojego sekretu",
+        "Link to your secret created and copied to clipboard": "Link do twojego sekretu został utworzony i skopiowany do schowka",
+        "Link to your secret created": "Link do twojego sekretu został utworzony",
+        "Link copied to clipboard": "Link skopiowany do schowka",
+        "Error": "Błąd",
+        "Unexpected error": "Nieoczekiwany błąd",
+        "Please try again later": "Spróbuj ponownie później"
+    },
+    "Secret page": {
+        "The Secret": "Sekret",
+        "Password": "Hasło",
+        "password": "hasło",
+        "Password is required": "Hasło jest wymagane",
+        "Password is required for opening the link": "Hasło jest wymagane do otwarcia linku",
+        "Password is incorrect": "Hasło jest nieprawidłowe",
+        "Submit": "Prześlij",
+        "Limit hits is exceeded": "Przekroczono limit wyświetleń",
+        "Close": "Zamknij",
+        "Copied to clipboard": "Skopiowano do schowka",
+        "Error": "Błąd",
+        "Failed to copy secret to clipboard": "Nie udało się skopiować sekretu do schowka",
+        "Failed to fetch the secret": "Nie udało się pobrać sekretu",
+        "Unexpected error occurred": "Wystąpił nieoczekiwany błąd"
+    }
+}
