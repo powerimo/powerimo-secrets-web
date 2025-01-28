@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Neues Geheimnis",
+        "Enter the secret": "Geheimnis eingeben",
+        "Your secret": "Ihr Geheimnis",
+        "Secret cannot be empty": "Geheimnis darf nicht leer sein",
+        "Expiration time": "Ablaufzeit",
+        "Expiration time must be in the future": "Ablaufzeit muss in der Zukunft liegen",
+        "Click to select": "Klicken Sie, um auszuwählen",
+        "Hit limit": "Trefferlimit",
+        "Please enter a valid positive integer": "Bitte geben Sie eine gültige positive ganze Zahl ein",
+        "Password (optional)": "Passwort (optional)",
+        "Password": "Passwort",
+        "Create": "Erstellen",
+        "Link to your secret": "Link zu Ihrem Geheimnis",
+        "Link to your secret created and copied to clipboard": "Link zu Ihrem Geheimnis erstellt und in die Zwischenablage kopiert",
+        "Link to your secret created": "Link zu Ihrem Geheimnis erstellt",
+        "Link copied to clipboard": "Link in die Zwischenablage kopiert",
+        "Error": "Fehler",
+        "Unexpected error": "Unerwarteter Fehler",
+        "Please try again later": "Bitte versuchen Sie es später erneut"
+    },
+    "Secret page": {
+        "The Secret": "Das Geheimnis",
+        "Password": "Passwort",
+        "password": "Passwort",
+        "Password is required": "Passwort ist erforderlich",
+        "Password is required for opening the link": "Passwort ist erforderlich, um den Link zu öffnen",
+        "Password is incorrect": "Passwort ist falsch",
+        "Submit": "Absenden",
+        "Limit hits is exceeded": "Trefferlimit überschritten",
+        "Close": "Schließen",
+        "Copied to clipboard": "In die Zwischenablage kopiert",
+        "Error": "Fehler",
+        "Failed to copy secret to clipboard": "Kopieren des Geheimnisses in die Zwischenablage fehlgeschlagen",
+        "Failed to fetch the secret": "Abrufen des Geheimnisses fehlgeschlagen",
+        "Unexpected error occurred": "Ein unerwarteter Fehler ist aufgetreten"
+    }
+}

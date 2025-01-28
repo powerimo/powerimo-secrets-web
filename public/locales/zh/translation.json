@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "新建秘密",
+        "Enter the secret": "输入秘密",
+        "Your secret": "你的秘密",
+        "Secret cannot be empty": "秘密不能为空",
+        "Expiration time": "过期时间",
+        "Expiration time must be in the future": "过期时间必须在未来",
+        "Click to select": "点击选择",
+        "Hit limit": "访问限制",
+        "Please enter a valid positive integer": "请输入有效的正整数",
+        "Password (optional)": "密码（可选）",
+        "Password": "密码",
+        "Create": "创建",
+        "Link to your secret": "秘密链接",
+        "Link to your secret created and copied to clipboard": "秘密链接已创建并复制到剪贴板",
+        "Link to your secret created": "秘密链接已创建",
+        "Link copied to clipboard": "链接已复制到剪贴板",
+        "Error": "错误",
+        "Unexpected error": "意外错误",
+        "Please try again later": "请稍后再试"
+    },
+    "Secret page": {
+        "The Secret": "秘密",
+        "Password": "密码",
+        "password": "密码",
+        "Password is required": "需要密码",
+        "Password is required for opening the link": "打开链接需要密码",
+        "Password is incorrect": "密码错误",
+        "Submit": "提交",
+        "Limit hits is exceeded": "访问次数已超出限制",
+        "Close": "关闭",
+        "Copied to clipboard": "已复制到剪贴板",
+        "Error": "错误",
+        "Failed to copy secret to clipboard": "复制秘密到剪贴板失败",
+        "Failed to fetch the secret": "获取秘密失败",
+        "Unexpected error occurred": "发生意外错误"
+    }
+}

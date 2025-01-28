@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Nuevo secreto",
+        "Enter the secret": "Introduce el secreto",
+        "Your secret": "Tu secreto",
+        "Secret cannot be empty": "El secreto no puede estar vacío",
+        "Expiration time": "Tiempo de expiración",
+        "Expiration time must be in the future": "El tiempo de expiración debe estar en el futuro",
+        "Click to select": "Haz clic para seleccionar",
+        "Hit limit": "Límite de accesos",
+        "Please enter a valid positive integer": "Por favor, introduce un número entero positivo válido",
+        "Password (optional)": "Contraseña (opcional)",
+        "Password": "Contraseña",
+        "Create": "Crear",
+        "Link to your secret": "Enlace a tu secreto",
+        "Link to your secret created and copied to clipboard": "Enlace a tu secreto creado y copiado al portapapeles",
+        "Link to your secret created": "Enlace a tu secreto creado",
+        "Link copied to clipboard": "Enlace copiado al portapapeles",
+        "Error": "Error",
+        "Unexpected error": "Error inesperado",
+        "Please try again later": "Por favor, inténtalo de nuevo más tarde"
+    },
+    "Secret page": {
+        "The Secret": "El secreto",
+        "Password": "Contraseña",
+        "password": "contraseña",
+        "Password is required": "Se requiere contraseña",
+        "Password is required for opening the link": "Se requiere contraseña para abrir el enlace",
+        "Password is incorrect": "La contraseña es incorrecta",
+        "Submit": "Enviar",
+        "Limit hits is exceeded": "El límite de accesos ha sido superado",
+        "Close": "Cerrar",
+        "Copied to clipboard": "Copiado al portapapeles",
+        "Error": "Error",
+        "Failed to copy secret to clipboard": "Error al copiar el secreto al portapapeles",
+        "Failed to fetch the secret": "Error al obtener el secreto",
+        "Unexpected error occurred": "Ocurrió un error inesperado"
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Nové tajemství",
+        "Enter the secret": "Zadejte tajemství",
+        "Your secret": "Vaše tajemství",
+        "Secret cannot be empty": "Tajemství nemůže být prázdné",
+        "Expiration time": "Čas vypršení",
+        "Expiration time must be in the future": "Čas vypršení musí být v budoucnosti",
+        "Click to select": "Klikněte pro výběr",
+        "Hit limit": "Limit přístupů",
+        "Please enter a valid positive integer": "Zadejte platné kladné celé číslo",
+        "Password (optional)": "Heslo (volitelné)",
+        "Password": "Heslo",
+        "Create": "Vytvořit",
+        "Link to your secret": "Odkaz na vaše tajemství",
+        "Link to your secret created and copied to clipboard": "Odkaz na vaše tajemství byl vytvořen a zkopírován do schránky",
+        "Link to your secret created": "Odkaz na vaše tajemství byl vytvořen",
+        "Link copied to clipboard": "Odkaz zkopírován do schránky",
+        "Error": "Chyba",
+        "Unexpected error": "Neočekávaná chyba",
+        "Please try again later": "Zkuste to prosím znovu později"
+    },
+    "Secret page": {
+        "The Secret": "Tajemství",
+        "Password": "Heslo",
+        "password": "heslo",
+        "Password is required": "Heslo je povinné",
+        "Password is required for opening the link": "Heslo je povinné pro otevření odkazu",
+        "Password is incorrect": "Heslo je nesprávné",
+        "Submit": "Potvrdit",
+        "Limit hits is exceeded": "Limit přístupů byl překročen",
+        "Close": "Zavřít",
+        "Copied to clipboard": "Zkopírováno do schránky",
+        "Error": "Chyba",
+        "Failed to copy secret to clipboard": "Nepodařilo se zkopírovat tajemství do schránky",
+        "Failed to fetch the secret": "Nepodařilo se načíst tajemství",
+        "Unexpected error occurred": "Došlo k neočekávané chybě"
+    }
+}

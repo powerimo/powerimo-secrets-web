@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Νέο μυστικό",
+        "Enter the secret": "Εισάγετε το μυστικό",
+        "Your secret": "Το μυστικό σας",
+        "Secret cannot be empty": "Το μυστικό δεν μπορεί να είναι κενό",
+        "Expiration time": "Χρόνος λήξης",
+        "Expiration time must be in the future": "Ο χρόνος λήξης πρέπει να είναι στο μέλλον",
+        "Click to select": "Κάντε κλικ για να επιλέξετε",
+        "Hit limit": "Όριο προσβάσεων",
+        "Please enter a valid positive integer": "Παρακαλώ εισάγετε έναν έγκυρο θετικό ακέραιο",
+        "Password (optional)": "Κωδικός πρόσβασης (προαιρετικό)",
+        "Password": "Κωδικός πρόσβασης",
+        "Create": "Δημιουργία",
+        "Link to your secret": "Σύνδεσμος προς το μυστικό σας",
+        "Link to your secret created and copied to clipboard": "Ο σύνδεσμος προς το μυστικό σας δημιουργήθηκε και αντιγράφηκε στο πρόχειρο",
+        "Link to your secret created": "Ο σύνδεσμος προς το μυστικό σας δημιουργήθηκε",
+        "Link copied to clipboard": "Ο σύνδεσμος αντιγράφηκε στο πρόχειρο",
+        "Error": "Σφάλμα",
+        "Unexpected error": "Απροσδόκητο σφάλμα",
+        "Please try again later": "Παρακαλώ δοκιμάστε ξανά αργότερα"
+    },
+    "Secret page": {
+        "The Secret": "Το Μυστικό",
+        "Password": "Κωδικός πρόσβασης",
+        "password": "κωδικός πρόσβασης",
+        "Password is required": "Απαιτείται κωδικός πρόσβασης",
+        "Password is required for opening the link": "Απαιτείται κωδικός πρόσβασης για το άνοιγμα του συνδέσμου",
+        "Password is incorrect": "Ο κωδικός πρόσβασης είναι λανθασμένος",
+        "Submit": "Υποβολή",
+        "Limit hits is exceeded": "Το όριο προσβάσεων ξεπεράστηκε",
+        "Close": "Κλείσιμο",
+        "Copied to clipboard": "Αντιγράφηκε στο πρόχειρο",
+        "Error": "Σφάλμα",
+        "Failed to copy secret to clipboard": "Αποτυχία αντιγραφής του μυστικού στο πρόχειρο",
+        "Failed to fetch the secret": "Αποτυχία λήψης του μυστικού",
+        "Unexpected error occurred": "Προέκυψε απροσδόκητο σφάλμα"
+    }
+}
