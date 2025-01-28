@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Új titok",
+        "Enter the secret": "Adja meg a titkot",
+        "Your secret": "Az Ön titka",
+        "Secret cannot be empty": "A titok nem lehet üres",
+        "Expiration time": "Lejárati idő",
+        "Expiration time must be in the future": "A lejárati időnek a jövőben kell lennie",
+        "Click to select": "Kattintson a kiválasztáshoz",
+        "Hit limit": "Elérési korlát",
+        "Please enter a valid positive integer": "Adjon meg egy érvényes pozitív egész számot",
+        "Password (optional)": "Jelszó (nem kötelező)",
+        "Password": "Jelszó",
+        "Create": "Létrehozás",
+        "Link to your secret": "Link az Ön titkához",
+        "Link to your secret created and copied to clipboard": "A link az Ön titkához létrejött és a vágólapra került",
+        "Link to your secret created": "A link az Ön titkához létrejött",
+        "Link copied to clipboard": "A link a vágólapra került",
+        "Error": "Hiba",
+        "Unexpected error": "Váratlan hiba",
+        "Please try again later": "Kérjük, próbálja meg később"
+    },
+    "Secret page": {
+        "The Secret": "A Titok",
+        "Password": "Jelszó",
+        "password": "jelszó",
+        "Password is required": "A jelszó megadása kötelező",
+        "Password is required for opening the link": "A jelszó szükséges a link megnyitásához",
+        "Password is incorrect": "A jelszó helytelen",
+        "Submit": "Beküldés",
+        "Limit hits is exceeded": "Az elérési korlát túl van lépve",
+        "Close": "Bezárás",
+        "Copied to clipboard": "Vágólapra másolva",
+        "Error": "Hiba",
+        "Failed to copy secret to clipboard": "Nem sikerült a titkot a vágólapra másolni",
+        "Failed to fetch the secret": "Nem sikerült a titkot lekérni",
+        "Unexpected error occurred": "Váratlan hiba történt"
+    }
+}

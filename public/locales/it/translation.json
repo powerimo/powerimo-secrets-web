@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Nuovo segreto",
+        "Enter the secret": "Inserisci il segreto",
+        "Your secret": "Il tuo segreto",
+        "Secret cannot be empty": "Il segreto non può essere vuoto",
+        "Expiration time": "Tempo di scadenza",
+        "Expiration time must be in the future": "Il tempo di scadenza deve essere nel futuro",
+        "Click to select": "Fai clic per selezionare",
+        "Hit limit": "Limite di accessi",
+        "Please enter a valid positive integer": "Inserisci un numero intero positivo valido",
+        "Password (optional)": "Password (opzionale)",
+        "Password": "Password",
+        "Create": "Crea",
+        "Link to your secret": "Link al tuo segreto",
+        "Link to your secret created and copied to clipboard": "Link al tuo segreto creato e copiato negli appunti",
+        "Link to your secret created": "Link al tuo segreto creato",
+        "Link copied to clipboard": "Link copiato negli appunti",
+        "Error": "Errore",
+        "Unexpected error": "Errore imprevisto",
+        "Please try again later": "Per favore riprova più tardi"
+    },
+    "Secret page": {
+        "The Secret": "Il Segreto",
+        "Password": "Password",
+        "password": "password",
+        "Password is required": "La password è obbligatoria",
+        "Password is required for opening the link": "La password è necessaria per aprire il link",
+        "Password is incorrect": "La password è errata",
+        "Submit": "Invia",
+        "Limit hits is exceeded": "Il limite di accessi è stato superato",
+        "Close": "Chiudi",
+        "Copied to clipboard": "Copiato negli appunti",
+        "Error": "Errore",
+        "Failed to copy secret to clipboard": "Copia del segreto negli appunti non riuscita",
+        "Failed to fetch the secret": "Recupero del segreto non riuscito",
+        "Unexpected error occurred": "Si è verificato un errore imprevisto"
+    }
+}

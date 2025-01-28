@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Novo segredo",
+        "Enter the secret": "Insira o segredo",
+        "Your secret": "Seu segredo",
+        "Secret cannot be empty": "O segredo não pode estar vazio",
+        "Expiration time": "Tempo de expiração",
+        "Expiration time must be in the future": "O tempo de expiração deve estar no futuro",
+        "Click to select": "Clique para selecionar",
+        "Hit limit": "Limite de acessos",
+        "Please enter a valid positive integer": "Por favor, insira um número inteiro positivo válido",
+        "Password (optional)": "Senha (opcional)",
+        "Password": "Senha",
+        "Create": "Criar",
+        "Link to your secret": "Link para o seu segredo",
+        "Link to your secret created and copied to clipboard": "Link para o seu segredo criado e copiado para a área de transferência",
+        "Link to your secret created": "Link para o seu segredo criado",
+        "Link copied to clipboard": "Link copiado para a área de transferência",
+        "Error": "Erro",
+        "Unexpected error": "Erro inesperado",
+        "Please try again later": "Por favor, tente novamente mais tarde"
+    },
+    "Secret page": {
+        "The Secret": "O Segredo",
+        "Password": "Senha",
+        "password": "senha",
+        "Password is required": "A senha é obrigatória",
+        "Password is required for opening the link": "A senha é obrigatória para abrir o link",
+        "Password is incorrect": "A senha está incorreta",
+        "Submit": "Enviar",
+        "Limit hits is exceeded": "O limite de acessos foi excedido",
+        "Close": "Fechar",
+        "Copied to clipboard": "Copiado para a área de transferência",
+        "Error": "Erro",
+        "Failed to copy secret to clipboard": "Falha ao copiar o segredo para a área de transferência",
+        "Failed to fetch the secret": "Falha ao buscar o segredo",
+        "Unexpected error occurred": "Ocorreu um erro inesperado"
+    }
+}

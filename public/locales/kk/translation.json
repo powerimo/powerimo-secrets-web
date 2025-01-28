@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Жаңа құпия",
+        "Enter the secret": "Құпияны енгізіңіз",
+        "Your secret": "Сіздің құпияңыз",
+        "Secret cannot be empty": "Құпия бос болмауы керек",
+        "Expiration time": "Мерзімі аяқталу уақыты",
+        "Expiration time must be in the future": "Мерзімі аяқталу уақыты болашақта болуы керек",
+        "Click to select": "Таңдау үшін басыңыз",
+        "Hit limit": "Соққы шегі",
+        "Please enter a valid positive integer": "Дұрыс оң бүтін санды енгізіңіз",
+        "Password (optional)": "Құпиясөз (міндетті емес)",
+        "Password": "Құпиясөз",
+        "Create": "Жасау",
+        "Link to your secret": "Құпияңызға сілтеме",
+        "Link to your secret created and copied to clipboard": "Құпияңызға сілтеме жасалды және алмасу буферіне көшірілді",
+        "Link to your secret created": "Құпияңызға сілтеме жасалды",
+        "Link copied to clipboard": "Сілтеме алмасу буферіне көшірілді",
+        "Error": "Қате",
+        "Unexpected error": "Күтпеген қате",
+        "Please try again later": "Кейінірек қайталап көріңіз"
+    },
+    "Secret page": {
+        "The Secret": "Құпия",
+        "Password": "Құпиясөз",
+        "password": "құпиясөз",
+        "Password is required": "Құпиясөз қажет",
+        "Password is required for opening the link": "Сілтемені ашу үшін құпиясөз қажет",
+        "Password is incorrect": "Құпиясөз қате",
+        "Submit": "Жіберу",
+        "Limit hits is exceeded": "Соққы шегі асып кетті",
+        "Close": "Жабу",
+        "Copied to clipboard": "Алмасу буферіне көшірілді",
+        "Error": "Қате",
+        "Failed to copy secret to clipboard": "Құпияны алмасу буферіне көшіру мүмкін болмады",
+        "Failed to fetch the secret": "Құпияны алу мүмкін болмады",
+        "Unexpected error occurred": "Күтпеген қате орын алды"
+    }
+}

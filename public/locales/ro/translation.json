@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Secret nou",
+        "Enter the secret": "Introduceți secretul",
+        "Your secret": "Secretul tău",
+        "Secret cannot be empty": "Secretul nu poate fi gol",
+        "Expiration time": "Timp de expirare",
+        "Expiration time must be in the future": "Timpul de expirare trebuie să fie în viitor",
+        "Click to select": "Click pentru a selecta",
+        "Hit limit": "Limită de accesări",
+        "Please enter a valid positive integer": "Introduceți un număr întreg pozitiv valid",
+        "Password (optional)": "Parolă (opțional)",
+        "Password": "Parolă",
+        "Create": "Creează",
+        "Link to your secret": "Link către secretul tău",
+        "Link to your secret created and copied to clipboard": "Link către secretul tău a fost creat și copiat în clipboard",
+        "Link to your secret created": "Link către secretul tău a fost creat",
+        "Link copied to clipboard": "Link copiat în clipboard",
+        "Error": "Eroare",
+        "Unexpected error": "Eroare neașteptată",
+        "Please try again later": "Vă rugăm să încercați din nou mai târziu"
+    },
+    "Secret page": {
+        "The Secret": "Secretul",
+        "Password": "Parolă",
+        "password": "parolă",
+        "Password is required": "Parola este necesară",
+        "Password is required for opening the link": "Parola este necesară pentru a deschide linkul",
+        "Password is incorrect": "Parola este incorectă",
+        "Submit": "Trimite",
+        "Limit hits is exceeded": "Limita de accesări a fost depășită",
+        "Close": "Închide",
+        "Copied to clipboard": "Copiat în clipboard",
+        "Error": "Eroare",
+        "Failed to copy secret to clipboard": "Nu s-a putut copia secretul în clipboard",
+        "Failed to fetch the secret": "Nu s-a putut prelua secretul",
+        "Unexpected error occurred": "A apărut o eroare neașteptată"
+    }
+}

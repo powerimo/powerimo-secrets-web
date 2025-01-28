@@ -1,0 +1,40 @@
+// Hrvatski (hr)
+{
+    "Main page": {
+        "New secret": "Nova tajna",
+        "Enter the secret": "Unesite tajnu",
+        "Your secret": "Vaša tajna",
+        "Secret cannot be empty": "Tajna ne može biti prazna",
+        "Expiration time": "Vrijeme isteka",
+        "Expiration time must be in the future": "Vrijeme isteka mora biti u budućnosti",
+        "Click to select": "Kliknite za odabir",
+        "Hit limit": "Ograničenje broja pristupa",
+        "Please enter a valid positive integer": "Unesite ispravan pozitivni cijeli broj",
+        "Password (optional)": "Lozinka (opcionalno)",
+        "Password": "Lozinka",
+        "Create": "Kreiraj",
+        "Link to your secret": "Poveznica na vašu tajnu",
+        "Link to your secret created and copied to clipboard": "Poveznica na vašu tajnu je stvorena i kopirana u međuspremnik",
+        "Link to your secret created": "Poveznica na vašu tajnu je stvorena",
+        "Link copied to clipboard": "Poveznica je kopirana u međuspremnik",
+        "Error": "Greška",
+        "Unexpected error": "Neočekivana greška",
+        "Please try again later": "Molimo pokušajte ponovno kasnije"
+    },
+    "Secret page": {
+        "The Secret": "Tajna",
+        "Password": "Lozinka",
+        "password": "lozinka",
+        "Password is required": "Lozinka je obavezna",
+        "Password is required for opening the link": "Lozinka je potrebna za otvaranje poveznice",
+        "Password is incorrect": "Lozinka je netočna",
+        "Submit": "Potvrdi",
+        "Limit hits is exceeded": "Prekoračen je broj pristupa",
+        "Close": "Zatvori",
+        "Copied to clipboard": "Kopirano u međuspremnik",
+        "Error": "Greška",
+        "Failed to copy secret to clipboard": "Neuspjelo kopiranje tajne u međuspremnik",
+        "Failed to fetch the secret": "Neuspješno dohvaćanje tajne",
+        "Unexpected error occurred": "Došlo je do neočekivane greške"
+    }
+}

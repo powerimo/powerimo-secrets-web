@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Новий секрет",
+        "Enter the secret": "Введіть секрет",
+        "Your secret": "Ваш секрет",
+        "Secret cannot be empty": "Секрет не може бути порожнім",
+        "Expiration time": "Час закінчення",
+        "Expiration time must be in the future": "Час закінчення має бути в майбутньому",
+        "Click to select": "Натисніть для вибору",
+        "Hit limit": "Ліміт переглядів",
+        "Please enter a valid positive integer": "Будь ласка, введіть дійсне додатнє ціле число",
+        "Password (optional)": "Пароль (необов'язково)",
+        "Password": "Пароль",
+        "Create": "Створити",
+        "Link to your secret": "Посилання на ваш секрет",
+        "Link to your secret created and copied to clipboard": "Посилання на ваш секрет створено та скопійовано до буфера обміну",
+        "Link to your secret created": "Посилання на ваш секрет створено",
+        "Link copied to clipboard": "Посилання скопійовано до буфера обміну",
+        "Error": "Помилка",
+        "Unexpected error": "Неочікувана помилка",
+        "Please try again later": "Спробуйте ще раз пізніше"
+    },
+    "Secret page": {
+        "The Secret": "Секрет",
+        "Password": "Пароль",
+        "password": "пароль",
+        "Password is required": "Пароль обов'язковий",
+        "Password is required for opening the link": "Пароль потрібен для відкриття посилання",
+        "Password is incorrect": "Пароль неправильний",
+        "Submit": "Відправити",
+        "Limit hits is exceeded": "Перевищено ліміт переглядів",
+        "Close": "Закрити",
+        "Copied to clipboard": "Скопійовано до буфера обміну",
+        "Error": "Помилка",
+        "Failed to copy secret to clipboard": "Не вдалося скопіювати секрет до буфера обміну",
+        "Failed to fetch the secret": "Не вдалося отримати секрет",
+        "Unexpected error occurred": "Сталася неочікувана помилка"
+    }
+}

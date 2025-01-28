@@ -1,0 +1,39 @@
+{
+    "Main page": {
+        "New secret": "Uusi salaisuus",
+        "Enter the secret": "Syötä salaisuus",
+        "Your secret": "Sinun salaisuutesi",
+        "Secret cannot be empty": "Salaisuus ei voi olla tyhjä",
+        "Expiration time": "Vanhentumisaika",
+        "Expiration time must be in the future": "Vanhentumisajan on oltava tulevaisuudessa",
+        "Click to select": "Klikkaa valitaksesi",
+        "Hit limit": "Osumien rajoitus",
+        "Please enter a valid positive integer": "Syötä kelvollinen positiivinen kokonaisluku",
+        "Password (optional)": "Salasana (valinnainen)",
+        "Password": "Salasana",
+        "Create": "Luo",
+        "Link to your secret": "Linkki salaisuuteesi",
+        "Link to your secret created and copied to clipboard": "Linkki salaisuuteesi luotu ja kopioitu leikepöydälle",
+        "Link to your secret created": "Linkki salaisuuteesi luotu",
+        "Link copied to clipboard": "Linkki kopioitu leikepöydälle",
+        "Error": "Virhe",
+        "Unexpected error": "Odottamaton virhe",
+        "Please try again later": "Yritä uudelleen myöhemmin"
+    },
+    "Secret page": {
+        "The Secret": "Salaisuus",
+        "Password": "Salasana",
+        "password": "salasana",
+        "Password is required": "Salasana vaaditaan",
+        "Password is required for opening the link": "Salasana tarvitaan linkin avaamiseen",
+        "Password is incorrect": "Salasana on virheellinen",
+        "Submit": "Lähetä",
+        "Limit hits is exceeded": "Osumien rajoitus ylitetty",
+        "Close": "Sulje",
+        "Copied to clipboard": "Kopioitu leikepöydälle",
+        "Error": "Virhe",
+        "Failed to copy secret to clipboard": "Salaisuuden kopiointi leikepöydälle epäonnistui",
+        "Failed to fetch the secret": "Salaisuuden noutaminen epäonnistui",
+        "Unexpected error occurred": "Odottamaton virhe tapahtui"
+    }
+}
